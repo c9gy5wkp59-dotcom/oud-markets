@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>OUD Markets — Student Dashboard</title>
+<style>
+:root{--bg:#050506;--fg:#f7f7f8;--muted:#96969e;--lav:#cbbaff;--line:#ffffff12}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(900px 520px at 50% -10%,#cbbaff15,transparent 70%),#050506;color:var(--fg);font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","SF Pro Text",Inter,system-ui,sans-serif}a{color:inherit;text-decoration:none}.nav{position:fixed;top:16px;left:50%;transform:translateX(-50%);width:min(1160px,calc(100% - 32px));height:58px;border:1px solid var(--line);border-radius:18px;background:#111115c9;backdrop-filter:blur(28px);display:flex;align-items:center;justify-content:space-between;padding:0 10px 0 20px;z-index:5}.logo{font-size:12px;font-weight:800;letter-spacing:.22em}.logo span{color:var(--lav)}.right{display:flex;align-items:center;gap:12px}.email{font-size:10px;color:#888891}.logout{border:1px solid #ffffff12;background:#ffffff07;color:#ddd;border-radius:11px;padding:9px 12px;font-size:10px;font-weight:700;cursor:pointer}.wrap{width:min(1160px,calc(100% - 32px));margin:auto}.hero{padding:150px 0 65px}.eyebrow{text-transform:uppercase;letter-spacing:.22em;font-size:9px;color:#aaa7b1;font-weight:800}.hero h1{font-size:clamp(48px,7vw,82px);line-height:.9;letter-spacing:-.07em;margin:15px 0}.hero p{color:var(--muted);font-size:15px}.grid{display:grid;grid-template-columns:1.6fr 1fr;gap:18px}.card{border:1px solid var(--line);border-radius:28px;background:linear-gradient(145deg,#121216e8,#09090bf0);box-shadow:0 25px 80px #0008,inset 0 1px #fff2}.course{padding:32px}.course-top{display:flex;justify-content:space-between;gap:20px;align-items:start}.course h2{font-size:30px;letter-spacing:-.04em;margin:10px 0}.course p{color:var(--muted);line-height:1.6;font-size:13px;max-width:650px}.badge{font-size:9px;letter-spacing:.13em;color:#cbbaff;border:1px solid #cbbaff24;background:#cbbaff09;padding:8px 10px;border-radius:10px}.progress-row{margin:28px 0 18px;display:flex;justify-content:space-between;font-size:10px;color:#85858e}.bar{height:5px;border-radius:99px;background:#ffffff0c;overflow:hidden}.fill{height:100%;width:0;background:linear-gradient(90deg,#cbbaff,#a995e8);border-radius:99px}.continue{display:inline-flex;margin-top:25px;padding:12px 16px;border-radius:12px;background:#f4efff;color:#16111e;font-size:10px;font-weight:800}.side{padding:28px}.side h3{font-size:18px;margin:5px 0 18px}.item{padding:15px 0;border-top:1px solid #ffffff0d}.item:first-of-type{border-top:0}.item b{display:block;font-size:11px;margin-bottom:5px}.item span{color:#777780;font-size:10px}.module-list{margin-top:22px}.module{display:flex;gap:13px;align-items:center;padding:15px 0;border-top:1px solid #ffffff0d}.module-num{width:28px;height:28px;border:1px solid #ffffff12;border-radius:9px;display:grid;place-items:center;color:#888;font-size:9px}.module b{font-size:11px}.module span{display:block;color:#6f6f78;font-size:9px;margin-top:3px}.notice{margin-top:18px;color:#686870;font-size:10px;line-height:1.6;padding-bottom:70px}
+@media(max-width:850px){.grid{grid-template-columns:1fr}.email{display:none}}
+</style>
+</head>
+<body>
+<nav class="nav"><a class="logo" href="index.html">OUD <span>MARKETS</span></a><div class="right"><span class="email" id="userEmail">Loading…</span><button class="logout" id="logout">Sign out</button></div></nav>
+<main class="wrap">
+<section class="hero"><div class="eyebrow">Student dashboard</div><h1>Keep building.</h1><p>Your courses, progress, and next lesson — all in one place.</p></section>
+<section class="grid">
+<article class="card course">
+<div class="course-top"><div><div class="eyebrow">01 · Foundation</div><h2>Trading Fundamentals</h2><p>Market mechanics, price action, risk, execution, journaling, and the process behind a repeatable trading plan.</p></div><div class="badge">ENROLLED</div></div>
+<div class="progress-row"><span>Course progress</span><strong id="progressText">0%</strong></div><div class="bar"><div class="fill" id="progressFill"></div></div>
+<a class="continue" href="course-trading-fundamentals.html">Continue course →</a>
+<div class="module-list">
+<div class="module"><div class="module-num">01</div><div><b>How markets move</b><span>Market structure & mechanics</span></div></div>
+<div class="module"><div class="module-num">02</div><div><b>Read price action</b><span>Charts, levels & context</span></div></div>
+<div class="module"><div class="module-num">03</div><div><b>Define the downside</b><span>Risk & position sizing</span></div></div>
+<div class="module"><div class="module-num">04</div><div><b>Turn analysis into a plan</b><span>Execution framework</span></div></div>
+<div class="module"><div class="module-num">05</div><div><b>Journal what happened</b><span>Review & improvement</span></div></div>
+<div class="module"><div class="module-num">06</div><div><b>Build your playbook</b><span>Repeatable process</span></div></div>
+</div>
+</article>
+<aside class="card side">
+<div class="eyebrow">Account</div><h3>Student profile</h3>
+<div class="item"><b id="profileName">Student</b><span id="profileEmail">—</span></div>
+<div class="item"><b>Access</b><span>OUD Markets student platform</span></div>
+<div class="item"><b>Current version</b><span>Trading Fundamentals · $25</span></div>
+<div class="item"><b>Next step</b><span>Start Module 01</span></div>
+</aside>
+</section>
+<div class="notice">Educational purposes only. This platform does not provide personalized investment advice or guarantee trading profits. Trading financial markets involves risk.</div>
+</main>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="supabase-config.js"></script>
+<script>
+const configured=window.OUD_SUPABASE_URL&&!window.OUD_SUPABASE_URL.startsWith("YOUR_")&&window.OUD_SUPABASE_PUBLISHABLE_KEY&&!window.OUD_SUPABASE_PUBLISHABLE_KEY.startsWith("YOUR_");
+if(!configured){document.getElementById("profileEmail").textContent="Supabase not connected yet";document.getElementById("userEmail").textContent="Setup required";}
+else{
+ const {createClient}=supabase; const db=createClient(window.OUD_SUPABASE_URL,window.OUD_SUPABASE_PUBLISHABLE_KEY);
+ async function boot(){
+  const {data,error}=await db.auth.getUser();
+  if(error||!data.user){location.href="login.html";return}
+  const u=data.user, email=u.email||"";
+  document.getElementById("userEmail").textContent=email;document.getElementById("profileEmail").textContent=email;document.getElementById("profileName").textContent=u.user_metadata?.first_name||"Student";
+  const {data:profile}=await db.from("profiles").select("first_name").eq("id",u.id).maybeSingle();
+  if(profile?.first_name) document.getElementById("profileName").textContent=profile.first_name;
+  const {data:progress}=await db.from("lesson_progress").select("completed").eq("user_id",u.id);
+  const done=(progress||[]).filter(x=>x.completed).length, pct=Math.round(done/6*100);
+  document.getElementById("progressText").textContent=pct+"%";document.getElementById("progressFill").style.width=pct+"%";
+ }
+ boot();
+ document.getElementById("logout").onclick=async()=>{await db.auth.signOut();location.href="login.html"};
+}
+</script>
+</body>
+</html>

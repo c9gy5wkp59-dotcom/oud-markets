@@ -206,12 +206,14 @@ footer{border-top:1px solid #ffffff0b!important;color:#686870!important}
   .method>div:last-child{border-bottom:0}
 }
 </style>
+
+
 </head>
 <body>
 
 <nav class="nav">
 <div class="logo">OUD <span>MARKETS</span></div>
-<div class="links"><a href="#platform">Platform</a><a href="#courses">Courses</a><a href="#method">Method</a></div>
+<div class="links"><a href="#platform">Platform</a><a href="course-trading-fundamentals.html">Courses</a><a href="#method">Method</a></div>
 <a class="nav-cta" href="#courses">Explore</a>
 </nav>
 
@@ -248,11 +250,12 @@ footer{border-top:1px solid #ffffff0b!important;color:#686870!important}
 
 <div class="wrap" style="text-align:center;margin-top:-10px;margin-bottom:18px;color:#6e687d;font-size:9px;letter-spacing:.22em">THE OUD METHOD · 01 — 04</div>
 <section class="section wrap" id="courses">
+<div style="margin-bottom:24px"><a href="course-trading-fundamentals.html" style="color:#b9add2;text-decoration:none;font-size:11px;letter-spacing:.12em">OPEN TRADING FUNDAMENTALS →</a></div>
 <div class="eyebrow">THE CURRICULUM</div>
 <h2 class="title">Learn the craft.</h2>
 <p class="copy">Four focused paths. Start with the fundamentals or go deeper into your process.</p>
 <div class="products">
-<article class="product feature"><div><div class="num">01 · FOUNDATION</div><h3>Trading Fundamentals</h3><p>Market mechanics, order types, charts, terminology, and the core concepts behind trading.</p></div><div class="product-bottom"><div class="price">$97</div><div class="learn">VIEW COURSE →</div></div></article>
+<a class="product feature" href="course-trading-fundamentals.html" aria-label="View Trading Fundamentals course" style="display:block;color:inherit;text-decoration:none"><div><div class="num">01 · FOUNDATION</div><h3>Trading Fundamentals</h3><p>Market mechanics, order types, charts, terminology, and the core concepts behind trading.</p></div><div class="product-bottom"><div class="price">$25</div><div class="learn">VIEW COURSE →</div></div></a>
 <article class="product"><div><div class="num">02 · ANALYSIS</div><h3>Technical Analysis</h3><p>Price action, market structure, levels, trends, and a repeatable chart-analysis workflow.</p></div><div class="product-bottom"><div class="price">$197</div><div class="learn">VIEW COURSE →</div></div></article>
 <article class="product"><div><div class="num">03 · RISK</div><h3>Risk & Strategy Lab</h3><p>Position sizing, risk/reward, trade planning, journaling, and disciplined execution.</p></div><div class="product-bottom"><div class="price">$297</div><div class="learn">VIEW COURSE →</div></div></article>
 <article class="product"><div><div class="num">04 · ADVANCED</div><h3>The Inner Circle</h3><p>Execution, review systems, psychology, and strategy refinement for advanced students.</p></div><div class="product-bottom"><div class="price">$497</div><div class="learn">VIEW COURSE →</div></div></article>
@@ -280,5 +283,47 @@ footer{border-top:1px solid #ffffff0b!important;color:#686870!important}
 <footer class="footer wrap">
 <div class="footer-row"><div>© 2026 OUD MARKETS</div><div class="disclaimer">Educational content only. OUD Markets does not provide personalized investment advice or guarantee trading profits. Trading financial markets involves substantial risk, including possible loss of capital.</div></div>
 </footer>
+
+
+<audio id="oudAudio" preload="metadata"></audio>
+
+
+
+<audio id="oudAudio" preload="auto" playsinline></audio>
+<script>
+(() => {
+  const tracks = [
+    "music/01-rnb-soul.mp3",
+    "music/02-hazy-after-hours.mp3",
+    "music/03-soul-rnb.mp3",
+    "music/04-smooth-neo-soul.mp3"
+  ];
+  const audio = document.getElementById("oudAudio");
+  if (!audio) return;
+  let i = Number(localStorage.getItem("oudTrackIndex") || 0);
+  audio.volume = 0.16;
+  audio.loop = false;
+
+  const load = (autoplay) => {
+    i = (i + tracks.length) % tracks.length;
+    localStorage.setItem("oudTrackIndex", i);
+    audio.src = tracks[i];
+    audio.load();
+    if (autoplay) audio.play().catch(()=>{});
+  };
+  audio.addEventListener("ended", () => load(true));
+  // Browsers generally require a user gesture before audible autoplay.
+  const begin = () => {
+    audio.play().catch(()=>{});
+    window.removeEventListener("pointerdown", begin);
+    window.removeEventListener("keydown", begin);
+    window.removeEventListener("touchstart", begin);
+  };
+  load(false);
+  window.addEventListener("pointerdown", begin, {once:true});
+  window.addEventListener("keydown", begin, {once:true});
+  window.addEventListener("touchstart", begin, {once:true, passive:true});
+})();
+</script>
 </body>
 </html>

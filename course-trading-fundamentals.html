@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Trading Fundamentals — OUD Markets</title>
+<meta name="description" content="OUD Markets Trading Fundamentals — a structured introduction to market structure, risk and execution.">
+<style>
+:root{--bg:#050506;--fg:#f6f5f8;--muted:#929199;--lav:#cbbaff;--line:#ffffff12;--card:#0d0d10}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--fg);font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","SF Pro Text",Inter,Arial,sans-serif;letter-spacing:-.01em}
+body:before{content:"";position:fixed;inset:0;z-index:-2;background:radial-gradient(850px 520px at 50% -5%,#cbbaff18,transparent 70%),radial-gradient(650px 500px at 90% 55%,#8f73d90b,transparent 70%)}
+.nav{position:fixed;z-index:20;top:18px;left:50%;transform:translateX(-50%);width:min(1120px,calc(100% - 32px));height:58px;border:1px solid var(--line);border-radius:999px;background:#111114b8;backdrop-filter:blur(26px) saturate(150%);display:flex;align-items:center;padding:0 10px 0 20px;box-shadow:0 18px 70px #000a,inset 0 1px #fff1}
+.brand{font-size:11px;font-weight:700;letter-spacing:.16em}.navlinks{display:flex;gap:25px;margin-left:auto;margin-right:20px}.navlinks a{color:#9b9ba3;text-decoration:none;font-size:12px}.navlinks a:hover{color:#fff}.navbtn{background:#f3f0f7;color:#09090b;text-decoration:none;border-radius:999px;padding:11px 17px;font-size:11px;font-weight:700}
+.wrap{width:min(1120px,calc(100% - 40px));margin:auto}
+.hero{min-height:820px;display:grid;grid-template-columns:1.15fr .85fr;align-items:center;gap:70px;padding-top:100px}
+.eyebrow{font-size:10px;letter-spacing:.22em;color:#aaa1ba}.hero h1{font-size:clamp(58px,7.8vw,112px);line-height:.91;letter-spacing:-.075em;margin:22px 0 28px}.hero h1 span{background:linear-gradient(100deg,#fff,#eeeaf5 50%,#aa98e8);-webkit-background-clip:text;background-clip:text;color:transparent}.hero p{font-size:18px;line-height:1.65;color:#9999a1;max-width:610px}.actions{display:flex;gap:10px;margin-top:34px}.btn{height:52px;padding:0 23px;border-radius:999px;display:inline-flex;align-items:center;justify-content:center;text-decoration:none;font-size:12px;font-weight:700}.primary{background:#f3f0f7;color:#09090b;box-shadow:0 14px 38px #cbbaff18,inset 0 1px #fff}.secondary{border:1px solid #ffffff18;color:#ddd;background:#ffffff04}
+.product{border:1px solid #ffffff10;border-radius:32px;background:linear-gradient(150deg,#131317,#08080a);padding:34px;box-shadow:0 40px 100px #000b,inset 0 1px #fff1;position:relative;overflow:hidden}.product:before{content:"";position:absolute;width:360px;height:260px;right:-160px;top:-120px;background:#cbbaff12;border-radius:50%;filter:blur(30px)}.product .small{font-size:9px;letter-spacing:.18em;color:#777780}.price{font-size:48px;letter-spacing:-.06em;margin:20px 0 8px}.sub{color:#777780;font-size:12px;line-height:1.5}.buy{width:100%;border:0;margin-top:28px;height:54px;border-radius:999px;background:linear-gradient(180deg,#d9d0ee,#b6a7df);font-weight:800;cursor:pointer}.guarantee{font-size:10px;color:#686871;text-align:center;margin-top:12px}.included{margin-top:30px;border-top:1px solid #ffffff0c;padding-top:22px}.included div{display:flex;gap:12px;padding:9px 0;color:#aaaab1;font-size:12px}.check{color:#cbbaff}
+.section{padding:120px 0}.section h2{font-size:clamp(42px,5.5vw,72px);line-height:1;letter-spacing:-.06em;margin:12px 0 45px}.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}.card{border:1px solid #ffffff0c;border-radius:24px;background:#0c0c0f;padding:28px;min-height:170px}.num{font-size:9px;color:#9e91bf;letter-spacing:.18em}.card h3{font-size:18px;margin:28px 0 8px}.card p{font-size:13px;line-height:1.6;color:#777780}
+.faq{border-top:1px solid #ffffff0d}.q{padding:23px 0;border-bottom:1px solid #ffffff0d;display:flex;justify-content:space-between;color:#ddd;font-size:14px}.q span{color:#66666e}
+.notice{border:1px solid #ffffff0c;background:#0a0a0c;border-radius:20px;padding:18px;color:#696970;font-size:10px;line-height:1.7;margin-top:40px}
+footer{padding:50px 0;border-top:1px solid #ffffff0b;color:#5f5f67;font-size:10px}
+@media(max-width:800px){.hero{grid-template-columns:1fr;padding-top:140px}.navlinks{display:none}.grid{grid-template-columns:1fr}.hero h1{font-size:64px}}
+</style>
+</head>
+<body>
+<nav class="nav">
+  <div class="brand">OUD MARKETS</div>
+  <div class="navlinks"><a href="index.html">Home</a><a href="#curriculum">Curriculum</a><a href="#faq">FAQ</a></div>
+  <a class="navbtn" href="#buy">Get access</a>
+</nav>
+
+<main>
+<section class="hero wrap">
+  <div>
+    <div class="eyebrow">TRADING FUNDAMENTALS · 01</div>
+    <h1>Build the<br><span>foundation.</span></h1>
+    <p>A structured introduction to market structure, technical analysis, risk and execution — designed to help you build a repeatable process before you put more capital at risk.</p>
+    <div class="actions"><a class="btn primary" href="#buy">Start learning</a><a class="btn secondary" href="#curriculum">View curriculum</a></div>
+  </div>
+  <aside class="product" id="buy">
+    <div class="small">OUD MARKETS / CORE</div>
+    <div class="price">$25</div>
+    <div class="sub">One-time purchase · lifetime access to the current course version</div>
+    <button class="buy" id="buyButton">Buy now</button>
+    <div class="guarantee">Secure checkout · access is granted after successful payment</div>
+    <div class="included">
+      <div><span class="check">✦</span> 6 structured modules</div>
+      <div><span class="check">✦</span> Market-structure lessons</div>
+      <div><span class="check">✦</span> Risk & position-sizing framework</div>
+      <div><span class="check">✦</span> Execution & review process</div>
+      <div><span class="check">✦</span> Student dashboard access</div>
+    </div>
+  </aside>
+</section>
+
+<section class="section wrap" id="curriculum">
+  <div class="eyebrow">THE CURRICULUM</div>
+  <h2>Learn the process.<br>Then practice it.</h2>
+  <div class="grid">
+    <article class="card"><div class="num">01 / CONTEXT</div><h3>How markets move</h3><p>Understand structure, trend, ranges, liquidity and the context behind a setup.</p></article>
+    <article class="card"><div class="num">02 / STRUCTURE</div><h3>Read price action</h3><p>Build a framework for identifying meaningful highs, lows, breaks and reactions.</p></article>
+    <article class="card"><div class="num">03 / RISK</div><h3>Define the downside</h3><p>Learn position sizing, invalidation and risk-per-trade concepts before execution.</p></article>
+    <article class="card"><div class="num">04 / EXECUTION</div><h3>Turn analysis into a plan</h3><p>Create a repeatable pre-trade process instead of relying on impulse.</p></article>
+    <article class="card"><div class="num">05 / REVIEW</div><h3>Journal what happened</h3><p>Review decisions, outcomes and process quality so your learning compounds.</p></article>
+    <article class="card"><div class="num">06 / NEXT</div><h3>Build your playbook</h3><p>Turn the framework into a personal checklist you can test and refine.</p></article>
+  </div>
+</section>
+
+<section class="section wrap" id="faq">
+  <div class="eyebrow">QUESTIONS</div>
+  <h2>Before you begin.</h2>
+  <div class="faq">
+    <div class="q">Is this financial advice?<span>+</span></div>
+    <div class="q">How do I get access after paying?<span>+</span></div>
+    <div class="q">Do I need trading experience?<span>+</span></div>
+    <div class="q">Can I access it on my phone?<span>+</span></div>
+  </div>
+  <div class="notice">Educational content only. OUD Markets does not provide personalized investment advice or guarantee trading profits. Trading financial markets involves substantial risk, including possible loss of capital. Course examples are educational and are not recommendations to buy or sell any security.</div>
+</section>
+</main>
+
+<footer><div class="wrap">© 2026 OUD Markets · Educational content only.</div></footer>
+
+<script>
+document.getElementById("buyButton").addEventListener("click",()=>{
+  alert("Stripe Checkout will be connected here. This demo does not process payments.");
+});
+</script>
+</body>
+</html>

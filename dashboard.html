@@ -15,9 +15,9 @@
 <section class="hero"><div class="eyebrow">Student dashboard</div><h1>Keep building.</h1><p>Your courses, progress, and next lesson — all in one place.</p></section>
 <section class="grid">
 <article class="card course">
-<div class="course-top"><div><div class="eyebrow">01 · Foundation</div><h2>Trading Fundamentals</h2><p>Market mechanics, price action, risk, execution, journaling, and the process behind a repeatable trading plan.</p></div><div class="badge">ENROLLED</div></div>
+<div class="course-top"><div><div class="eyebrow">01 · Foundation</div><h2>Trading Fundamentals</h2><p>Market mechanics, price action, risk, execution, journaling, and the process behind a repeatable trading plan.</p></div><div class="badge" id="accessBadge">CHECKING ACCESS…</div></div>
 <div class="progress-row"><span>Course progress</span><strong id="progressText">0%</strong></div><div class="bar"><div class="fill" id="progressFill"></div></div>
-<a class="continue" href="course-trading-fundamentals.html">Continue course →</a>
+<a class="continue" id="continueLink" href="course-trading-fundamentals.html#studentAccess">Check course access →</a>
 <div class="module-list">
 <div class="module"><div class="module-num">01</div><div><b>How markets move</b><span>Market structure & mechanics</span></div></div>
 <div class="module"><div class="module-num">02</div><div><b>Read price action</b><span>Charts, levels & context</span></div></div>
@@ -30,7 +30,7 @@
 <aside class="card side">
 <div class="eyebrow">Account</div><h3>Student profile</h3>
 <div class="item"><b id="profileName">Student</b><span id="profileEmail">—</span></div>
-<div class="item"><b>Access</b><span>OUD Markets student platform</span></div>
+<div class="item"><b>Access</b><span id="accessText">Checking enrollment…</span></div>
 <div class="item"><b>Current version</b><span>Trading Fundamentals · $25</span></div>
 <div class="item"><b>Next step</b><span>Start Module 01</span></div>
 </aside>
@@ -51,9 +51,35 @@ else{
   document.getElementById("userEmail").textContent=email;document.getElementById("profileEmail").textContent=email;document.getElementById("profileName").textContent=u.user_metadata?.first_name||"Student";
   const {data:profile}=await db.from("profiles").select("first_name").eq("id",u.id).maybeSingle();
   if(profile?.first_name) document.getElementById("profileName").textContent=profile.first_name;
-  const {data:progress}=await db.from("lesson_progress").select("completed").eq("user_id",u.id);
+
+  const {data:course,error:courseError}=await db.from("courses").select("id,title").eq("slug","trading-fundamentals").maybeSingle();
+  let enrolled=false;
+  if(course && !courseError){
+    const {data:enrollment,error:enrollmentError}=await db.from("enrollments").select("id").eq("user_id",u.id).eq("course_id",course.id).maybeSingle();
+    enrolled=!!enrollment && !enrollmentError;
+  }
+
+  const badge=document.getElementById("accessBadge");
+  const accessText=document.getElementById("accessText");
+  const continueLink=document.getElementById("continueLink");
+  if(enrolled){
+    badge.textContent="ENROLLED";
+    accessText.textContent="Trading Fundamentals · lifetime access";
+    continueLink.textContent="Continue course →";
+    continueLink.href="course-trading-fundamentals.html#studentAccess";
+  }else{
+    badge.textContent="LOCKED";
+    accessText.textContent="Purchase required for course access";
+    continueLink.textContent="View course & get access →";
+    continueLink.href="course-trading-fundamentals.html#buy";
+  }
+
+  const {data:progress}=enrolled
+    ? await db.from("lesson_progress").select("completed").eq("user_id",u.id)
+    : {data:[]};
   const done=(progress||[]).filter(x=>x.completed).length, pct=Math.round(done/6*100);
-  document.getElementById("progressText").textContent=pct+"%";document.getElementById("progressFill").style.width=pct+"%";
+  document.getElementById("progressText").textContent=pct+"%";
+  document.getElementById("progressFill").style.width=pct+"%";
  }
  boot();
  document.getElementById("logout").onclick=async()=>{await db.auth.signOut();location.href="login.html"};
